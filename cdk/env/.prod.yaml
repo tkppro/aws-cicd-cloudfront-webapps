@@ -1,0 +1,16 @@
+region: ap-northeast-1 #feel free to change it
+
+githubInfo:
+  owner: Owner
+  repo: ExampleRepository
+  branch: TARGET_BRANCH
+
+connectionARN: ""
+
+route53:
+  hostedZoneName: "host-example.com"
+  domainName: "my-website-example.com"
+
+acm:
+  domainName: "*.my-website-example.com"
+  certificateARN: ""

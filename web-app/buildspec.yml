@@ -1,0 +1,31 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      nodejs: 14
+    commands:
+      - npm install -g yarn
+  pre_build:
+    commands:
+      - echo Build started on `date`
+      - yarn install
+      - echo "Prepare env"
+      - touch .env
+      - echo "VUE_APP_BASE_URL=$VUE_APP_BASE_URL" >> .env
+      - cat .env
+  build:
+    commands:
+      - yarn build
+  post_build:
+    commands:
+      - echo Build completed on `date`
+
+artifacts:
+  base-directory: dist
+  files:
+    - '**/*'
+
+cache:
+  paths:
+    - './node_modules/**/*'
